@@ -10,14 +10,18 @@ import {
   Mail,
   Menu,
   X,
+  ChevronDown,
 } from "lucide-react";
 import NAVISHR from "../../assets/img/navishr.png";
+import NAVISHRLogoWhite from "../../assets/img/navishr-white.png";
 import MainBackground from "../../assets/img/main.png";
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState("flights");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCompactDesktopExpanded, setIsCompactDesktopExpanded] =
+    useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,6 +49,18 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      setIsCompactDesktopExpanded(false);
+    }
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (!isScrolled) {
+      setIsCompactDesktopExpanded(false);
+    }
+  }, [isScrolled]);
+
   const navigationItems = [
     {
       id: "Home",
@@ -71,16 +87,16 @@ const Navbar = () => {
       mobileLabel: "Services",
     },
     {
-      id: "JAPANESE COMPANIES INDIA",
+      id: "Japanese Companies India",
       icon: Building2,
-      desktopLabel: "JAPANESE COMPANIES INDIA",
-      mobileLabel: "JAPANESE COMPANIES INDIA",
+      desktopLabel: "Japanese Companies India",
+      mobileLabel: "Japanese Companies India",
     },
     {
-      id: "JOBS ABROAD",
+      id: "Jobs Abroad",
       icon: Plane,
-      desktopLabel: "JOBS ABROAD",
-      mobileLabel: "JOBS ABROAD",
+      desktopLabel: "Jobs Abroad",
+      mobileLabel: "Jobs Abroad",
     },
     {
       id: "NAVISTARS",
@@ -96,18 +112,28 @@ const Navbar = () => {
     },
   ];
 
+  const MAX_VISIBLE_ITEMS = 6;
+  const visibleItems = navigationItems.slice(0, MAX_VISIBLE_ITEMS);
+  const hiddenItems = navigationItems.slice(MAX_VISIBLE_ITEMS);
+
+  const handleDesktopSelect = (itemId: string) => {
+    setActiveTab(itemId);
+    setIsCompactDesktopExpanded(false);
+  };
+
   return (
     <>
       {/* Spacer for content below */}
       <div
-        className="h-screen bg-cover bg-center p-8 flex flex-col items-center justify-center text-center"
-        style={{ backgroundImage: `url(${MainBackground})`, opacity: 5 }}
+        className="relative h-screen min-h-[540px] bg-cover bg-center px-4 py-16 sm:px-8 md:px-12 flex flex-col items-center justify-center text-center"
+        style={{ backgroundImage: `url(${MainBackground})` }}
       >
-        <div className="pt-16 px-12">
-          <h1 className="text-5xl font-bold text-white mb-4 happy-monkey">
+        <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+        <div className="relative z-10 w-full max-w-3xl md:max-w-4xl lg:max-w-5xl space-y-4 pt-5">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white happy-monkey">
             Which Path will you choose for your career?
           </h1>
-          <p className="text-gray-900 mb-8 font-medium poppins px-20">
+          <p className="text-white font-medium poppins text-sm sm:text-base leading-relaxed sm:leading-7 px-2 sm:px-6 md:px-12">
             NAVIS Supports Development of the 1.4 Billion Indian Workforce for
             India, Japan, Germany, Spain and other Countries. We Create and Up
             Skill People, to Master the Foreign Language, We Train and Enhance
@@ -115,7 +141,7 @@ const Navbar = () => {
           </p>
           <button
             type="button"
-            className="bg-[#800000] hover:bg-[#660000] text-white font-semibold px-8 py-2 rounded-full transition-colors duration-200 shadow-md"
+            className="mx-auto bg-[#800000] hover:bg-[#660000] text-white font-semibold px-6 sm:px-8 py-2 sm:py-3 rounded-full transition-colors duration-200 shadow-md"
           >
             Enquiry Now
           </button>
@@ -128,16 +154,16 @@ const Navbar = () => {
           isScrolled ? "opacity-0 invisible" : "opacity-100 visible"
         }`}
       >
-        <div className="w-full bg-transparent">
+        <div className="w-full bg-white md:bg-transparent">
           {/* Top Bar */}
-          <div className="bg-transparent border-transparent">
+          <div className="bg-white md:bg-transparent border-transparent">
             <div className="max-w-auto mx-auto px-4 py-3 flex items-center justify-between">
               {/* Logo */}
               <div className="flex items-center">
                 <img
-                  src={NAVISHR}
+                  src={NAVISHRLogoWhite}
                   alt="NAVISHR"
-                  className="h-15 w-auto object-contain"
+                  className="h-11 w-auto object-contain"
                 />
               </div>
               <button
@@ -160,17 +186,17 @@ const Navbar = () => {
           </div>
 
           {/* Navigation Tabs */}
-          <div className="bg-transparent">
-            <div className="max-w-fit mx-auto px-4 bg-white border-gray-200 rounded-lg">
+          <div className="bg-white md:bg-transparent">
+            <div className="max-w-5xl mx-auto px-4 bg-white border-gray-200 rounded-lg">
               <div className="hidden md:flex items-center justify-center gap-1 py-2 overflow-x-auto">
-                {navigationItems.slice(0).map((item) => {
+                {navigationItems.map((item) => {
                   const Icon = item.icon;
                   const isActive = activeTab === item.id;
 
                   return (
                     <button
                       key={item.id}
-                      onClick={() => setActiveTab(item.id)}
+                      onClick={() => handleDesktopSelect(item.id)}
                       className={`relative flex flex-col items-center min-w-[90px] px-4 py-3 rounded-lg transition-all ${
                         isActive ? "bg-white shadow-md" : "hover:bg-white/50"
                       }`}
@@ -252,7 +278,102 @@ const Navbar = () => {
               />
 
               {/* Compact Navigation */}
-              <div className="hidden md:flex items-center gap-1 overflow-x-auto flex-1 mx-4">
+              <div className="hidden md:flex flex-col flex-1 mx-4 items-end">
+                <div className="flex items-center justify-end gap-1 flex-wrap">
+                  {visibleItems.map((item) => {
+                    const Icon = item.icon;
+                    const isActive = activeTab === item.id;
+
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={() => handleDesktopSelect(item.id)}
+                        className={`flex items-center gap-2 px-3 py-2 rounded transition-all whitespace-nowrap ${
+                          isActive
+                            ? "text-red-600 font-semibold"
+                            : "text-gray-700 hover:text-red-600"
+                        }`}
+                      >
+                        <Icon
+                          className={`w-5 h-5 ${
+                            isActive ? "text-red-600" : "text-gray-600"
+                          }`}
+                        />
+                        <span className="text-sm">{item.mobileLabel}</span>
+                      </button>
+                    );
+                  })}
+                  {hiddenItems.length > 0 && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setIsCompactDesktopExpanded((prev) => !prev)
+                      }
+                      className={`flex items-center gap-2 px-3 py-2 rounded transition-all whitespace-nowrap text-gray-700 hover:text-red-600 ${
+                        isCompactDesktopExpanded
+                          ? "text-red-600 font-semibold"
+                          : ""
+                      }`}
+                      aria-expanded={isCompactDesktopExpanded}
+                      aria-haspopup="true"
+                    >
+                      <ChevronDown
+                        className={`w-5 h-5 transition-transform ${
+                          isCompactDesktopExpanded ? "rotate-180" : ""
+                        }`}
+                      />
+                      <span className="text-sm">More</span>
+                    </button>
+                  )}
+                </div>
+                {isCompactDesktopExpanded && hiddenItems.length > 0 && (
+                  <div className="flex flex-wrap justify-center gap-1 mt-2 w-full self-center">
+                    {hiddenItems.map((item) => {
+                      const Icon = item.icon;
+                      const isActive = activeTab === item.id;
+
+                      return (
+                        <button
+                          key={item.id}
+                          onClick={() => handleDesktopSelect(item.id)}
+                          className={`flex items-center gap-2 px-3 py-2 rounded transition-all whitespace-nowrap ${
+                            isActive
+                              ? "text-red-600 font-semibold"
+                              : "text-gray-700 hover:text-red-600"
+                          }`}
+                        >
+                          <Icon
+                            className={`w-5 h-5 ${
+                              isActive ? "text-red-600" : "text-gray-600"
+                            }`}
+                          />
+                          <span className="text-sm">{item.mobileLabel}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
+              <button
+                type="button"
+                className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500"
+                aria-label={
+                  isMobileMenuOpen
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
+                }
+                onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </button>
+            </div>
+            {isMobileMenuOpen && (
+              <div className="md:hidden grid grid-cols-2 sm:grid-cols-3 gap-3 py-4">
                 {navigationItems.map((item) => {
                   const Icon = item.icon;
                   const isActive = activeTab === item.id;
@@ -260,49 +381,29 @@ const Navbar = () => {
                   return (
                     <button
                       key={item.id}
-                      onClick={() => setActiveTab(item.id)}
-                      className={`flex items-center gap-2 px-3 py-2 rounded transition-all whitespace-nowrap ${
+                      onClick={() => {
+                        setActiveTab(item.id);
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className={`flex items-center gap-3 rounded-lg border px-3 py-2 transition-colors ${
                         isActive
-                          ? "text-red-600 font-semibold"
-                          : "text-gray-700 hover:text-red-600"
+                          ? "bg-white text-red-600"
+                          : "bg-white text-gray-700 hover:bg-red-50"
                       }`}
                     >
                       <Icon
-                        className={`w-5 h-5 ${
-                          isActive ? "text-red-600" : "text-gray-600"
+                        className={`h-6 w-6 ${
+                          isActive ? "text-red-600" : "text-gray-500"
                         }`}
                       />
-                      <span className="text-sm">{item.mobileLabel}</span>
+                      <span className="text-sm font-medium ">
+                        {item.mobileLabel}
+                      </span>
                     </button>
                   );
                 })}
               </div>
-            </div>
-            <div className="md:hidden flex items-center gap-3 overflow-x-auto pb-2">
-              {navigationItems.map((item) => {
-                const Icon = item.icon;
-                const isActive = activeTab === item.id;
-
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => setActiveTab(item.id)}
-                    className={`flex flex-col items-center gap-1 rounded-lg px-3 py-2 text-xs transition-colors ${
-                      isActive
-                        ? "bg-red-50 text-red-600"
-                        : "bg-gray-50 text-gray-700 hover:bg-red-50 hover:text-red-600"
-                    }`}
-                  >
-                    <Icon
-                      className={`h-5 w-5 ${
-                        isActive ? "text-red-600" : "text-gray-500"
-                      }`}
-                    />
-                    <span className="font-medium">{item.mobileLabel}</span>
-                  </button>
-                );
-              })}
-            </div>
+            )}
           </div>
         </div>
       </div>

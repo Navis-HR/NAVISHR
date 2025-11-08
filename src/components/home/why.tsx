@@ -31,7 +31,7 @@ const Why: React.FC = () => {
       </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center px-5 text-center lg:px-8">
-        <div className="max-w-3xl space-y-5">
+        <div className="max-w-6xl space-y-5">
           <p className="text-3xl font-semibold tracking-wide text-[#9f2f2f] sm:text-[40px]">
             Why choose us?
           </p>
@@ -44,7 +44,7 @@ const Why: React.FC = () => {
           </p>
         </div>
 
-        <div className="mt-14 grid w-full gap-10 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-14 grid w-full gap-10 grid-cols-2 xl:grid-cols-4">
           {cardDetails.map((card, index) => (
             <div
               key={card.title}
