@@ -1,12 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Navbar from "../components/navbar/navbar";
 import Home from "../pages/home";
 
 const AppRoutes: React.FC = () => {
   return (
     <div className="min-h-screen">
-      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<Home />} />

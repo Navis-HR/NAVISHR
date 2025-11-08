@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+.happy-monkey {
+    font-family: "Happy Monkey", cursive;
+}
+
+.poppins {
+    font-family: "Poppins", sans-serif;
+}

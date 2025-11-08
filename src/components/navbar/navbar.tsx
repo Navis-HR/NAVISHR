@@ -1,20 +1,18 @@
 import { useState, useEffect } from "react";
 import {
-  Plane,
-  Building2,
   Home,
-  Palmtree,
-  Train,
-  Bus,
-  Car,
-  FileText,
-  CreditCard,
-  Shield,
-  MoreHorizontal,
+  Users,
+  Newspaper,
+  BriefcaseBusiness,
+  Building2,
+  Plane,
+  Star,
+  Mail,
   Menu,
   X,
 } from "lucide-react";
 import NAVISHR from "../../assets/img/navishr.png";
+import MainBackground from "../../assets/img/main.png";
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState("flights");
@@ -49,96 +47,78 @@ const Navbar = () => {
 
   const navigationItems = [
     {
-      id: "flights",
-      icon: Plane,
-      desktopLabel: "Flights",
-      mobileLabel: "Flights",
-    },
-    {
-      id: "hotels",
-      icon: Building2,
-      desktopLabel: "Hotels",
-      mobileLabel: "Hotels",
-    },
-    {
-      id: "homestays",
+      id: "Home",
       icon: Home,
-      desktopLabel: "Homestays\n& Villas",
-      mobileLabel: "Homestays",
+      desktopLabel: "Home",
+      mobileLabel: "Home",
     },
     {
-      id: "holiday",
-      icon: Palmtree,
-      desktopLabel: "Holiday Packages",
-      mobileLabel: "Holiday",
+      id: "About Us",
+      icon: Users,
+      desktopLabel: "About Us",
+      mobileLabel: "About Us",
     },
     {
-      id: "trains",
-      icon: Train,
-      desktopLabel: "Trains",
-      mobileLabel: "Trains",
+      id: "News",
+      icon: Newspaper,
+      desktopLabel: "News",
+      mobileLabel: "News",
     },
     {
-      id: "buses",
-      icon: Bus,
-      desktopLabel: "Buses",
-      mobileLabel: "Buses",
+      id: "Navis HR",
+      icon: BriefcaseBusiness,
+      desktopLabel: "Navis HR",
+      mobileLabel: "Navis HR",
     },
     {
-      id: "cabs",
-      icon: Car,
-      desktopLabel: "Cabs",
-      mobileLabel: "Cabs",
+      id: "JAPANESE COMPANIES INDIA",
+      icon: Building2,
+      desktopLabel: "JAPANESE COMPANIES INDIA",
+      mobileLabel: "JAPANESE COMPANIES INDIA",
     },
     {
-      id: "visa",
-      icon: FileText,
-      desktopLabel: "Visa",
-      mobileLabel: "Visa",
+      id: "JOBS ABROAD",
+      icon: Plane,
+      desktopLabel: "JOBS ABROAD",
+      mobileLabel: "JOBS ABROAD",
     },
     {
-      id: "forex",
-      icon: CreditCard,
-      desktopLabel: "Forex Card\n& Currency",
-      mobileLabel: "Forex",
+      id: "NAVISTARS",
+      icon: Star,
+      desktopLabel: "NAVISTARS",
+      mobileLabel: "NAVISTARS",
     },
     {
-      id: "insurance",
-      icon: Shield,
-      desktopLabel: "Travel Insurance",
-      mobileLabel: "Insurance",
-    },
-    {
-      id: "more",
-      icon: MoreHorizontal,
-      desktopLabel: "More",
-      mobileLabel: "More",
+      id: "Contact Us",
+      icon: Mail,
+      desktopLabel: "Contact Us",
+      mobileLabel: "Contact Us",
     },
   ];
 
   return (
     <>
       {/* Spacer for content below */}
-      <div className="h-screen bg-linear-to-b from-blue-50 to-white p-8">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">
-          Scroll down to see the sticky navbar
-        </h1>
-        <p className="text-gray-600 mb-8">
-          The navbar will transform into a compact horizontal layout when you
-          scroll.
-        </p>
-        <div className="space-y-4">
-          {[...Array(20)].map((_, i) => (
-            <div key={i} className="bg-white p-6 rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold mb-2">
-                Content Section {i + 1}
-              </h2>
-              <p className="text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scroll
-                to see the navbar stick and transform.
-              </p>
-            </div>
-          ))}
+      <div
+        className="h-screen bg-cover bg-center p-8 flex flex-col items-center justify-center text-center"
+        style={{ backgroundImage: `url(${MainBackground})`, opacity: 5 }}
+      >
+        <div className="pt-16 px-12">
+          <h1 className="text-5xl font-bold text-white mb-4 happy-monkey">
+            Which Path will you choose for your career?
+          </h1>
+          <p className="text-gray-900 mb-8 font-medium poppins px-20">
+            NAVIS Supports Development of the 1.4 Billion Indian Workforce for
+            India, Japan, Germany, Spain and other Countries. We Create and Up
+            Skill People, to Master the Foreign Language, We Train and Enhance
+            their Skills, and Build Career Prospects.
+          </p>
+          <button
+            type="button"
+            className="bg-[#800000] hover:bg-[#660000] text-white font-semibold px-8 py-2 rounded-full transition-colors duration-200 shadow-md"
+          >
+            Enquiry Now
+          </button>
         </div>
       </div>
 
@@ -148,21 +128,21 @@ const Navbar = () => {
           isScrolled ? "opacity-0 invisible" : "opacity-100 visible"
         }`}
       >
-        <div className="w-full bg-white shadow-md">
+        <div className="w-full bg-transparent">
           {/* Top Bar */}
-          <div className="bg-white border-b border-gray-200">
-            <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="bg-transparent border-transparent">
+            <div className="max-w-auto mx-auto px-4 py-3 flex items-center justify-between">
               {/* Logo */}
               <div className="flex items-center">
                 <img
                   src={NAVISHR}
                   alt="NAVISHR"
-                  className="h-10 w-auto object-contain"
+                  className="h-15 w-auto object-contain"
                 />
               </div>
               <button
                 type="button"
-                className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500"
                 aria-label={
                   isMobileMenuOpen
                     ? "Close navigation menu"
@@ -180,10 +160,10 @@ const Navbar = () => {
           </div>
 
           {/* Navigation Tabs */}
-          <div className="bg-linear-to-b from-gray-50 to-white">
-            <div className="max-w-7xl mx-auto px-4">
-              <div className="hidden md:flex items-center justify-start gap-1 py-4 overflow-x-auto">
-                {navigationItems.slice(0, -1).map((item) => {
+          <div className="bg-transparent">
+            <div className="max-w-fit mx-auto px-4 bg-white border-gray-200 rounded-lg">
+              <div className="hidden md:flex items-center justify-center gap-1 py-2 overflow-x-auto">
+                {navigationItems.slice(0).map((item) => {
                   const Icon = item.icon;
                   const isActive = activeTab === item.id;
 
@@ -197,14 +177,14 @@ const Navbar = () => {
                     >
                       <Icon
                         className={`w-8 h-8 mb-2 ${
-                          isActive ? "text-blue-500" : "text-gray-600"
+                          isActive ? "text-red-500" : "text-gray-600"
                         }`}
                       />
 
                       <span
                         className={`text-xs text-center whitespace-pre-line ${
                           isActive
-                            ? "text-blue-500 font-semibold"
+                            ? "text-red-500 font-semibold"
                             : "text-gray-700"
                         }`}
                       >
@@ -212,7 +192,7 @@ const Navbar = () => {
                       </span>
 
                       {isActive && (
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-blue-500 rounded-t-full" />
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-red-500 rounded-t-full" />
                       )}
                     </button>
                   );
@@ -233,13 +213,13 @@ const Navbar = () => {
                         }}
                         className={`flex items-center gap-3 rounded-lg border px-3 py-2 transition-colors ${
                           isActive
-                            ? "border-blue-200 bg-blue-50 text-blue-600"
-                            : "border-gray-200 bg-white text-gray-700 hover:border-blue-200 hover:bg-blue-50"
+                            ? "bg-white text-red-600"
+                            : "bg-white text-gray-700 hover:bg-red-50"
                         }`}
                       >
                         <Icon
                           className={`h-6 w-6 ${
-                            isActive ? "text-blue-600" : "text-gray-500"
+                            isActive ? "text-red-600" : "text-gray-500"
                           }`}
                         />
                         <span className="text-sm font-medium">
@@ -261,14 +241,14 @@ const Navbar = () => {
           isScrolled ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
-        <div className="w-full bg-white shadow-lg border-b-2 border-blue-500">
-          <div className="max-w-7xl mx-auto px-4">
+        <div className="w-full bg-white shadow-lg">
+          <div className="max-w-auto mx-auto px-4">
             <div className="flex items-center justify-between py-2">
               {/* Logo */}
               <img
                 src={NAVISHR}
                 alt="NAVISHR"
-                className="h-8 w-auto shrink-0 object-contain"
+                className="h-15 w-auto shrink-0 object-contain"
               />
 
               {/* Compact Navigation */}
@@ -283,13 +263,13 @@ const Navbar = () => {
                       onClick={() => setActiveTab(item.id)}
                       className={`flex items-center gap-2 px-3 py-2 rounded transition-all whitespace-nowrap ${
                         isActive
-                          ? "text-blue-600 font-semibold border-b-2 border-blue-600"
-                          : "text-gray-700 hover:text-blue-600"
+                          ? "text-red-600 font-semibold"
+                          : "text-gray-700 hover:text-red-600"
                       }`}
                     >
                       <Icon
                         className={`w-5 h-5 ${
-                          isActive ? "text-blue-600" : "text-gray-600"
+                          isActive ? "text-red-600" : "text-gray-600"
                         }`}
                       />
                       <span className="text-sm">{item.mobileLabel}</span>
@@ -309,13 +289,13 @@ const Navbar = () => {
                     onClick={() => setActiveTab(item.id)}
                     className={`flex flex-col items-center gap-1 rounded-lg px-3 py-2 text-xs transition-colors ${
                       isActive
-                        ? "bg-blue-50 text-blue-600"
-                        : "bg-gray-50 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                        ? "bg-red-50 text-red-600"
+                        : "bg-gray-50 text-gray-700 hover:bg-red-50 hover:text-red-600"
                     }`}
                   >
                     <Icon
                       className={`h-5 w-5 ${
-                        isActive ? "text-blue-600" : "text-gray-500"
+                        isActive ? "text-red-600" : "text-gray-500"
                       }`}
                     />
                     <span className="font-medium">{item.mobileLabel}</span>
