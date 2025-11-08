@@ -71,7 +71,33 @@ const Footer: React.FC = () => {
           ))}
         </nav>
 
-        <div className="space-y-4 flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center space-y-6 sm:items-start">
+          <div className="w-full max-w-sm text-center sm:text-left">
+            <h3 className="text-base font-semibold uppercase tracking-wide text-slate-200">
+              Subscribe
+            </h3>
+            <p className="mt-1 text-sm text-slate-300">
+              Stay updated with NAVIS HR opportunities.
+            </p>
+            <form
+              className="mt-4 flex w-full flex-col gap-2 sm:flex-row"
+              onSubmit={(event) => event.preventDefault()}
+            >
+              <input
+                type="email"
+                name="email"
+                aria-label="Email address"
+                placeholder="Enter your email"
+                className="w-full flex-1 rounded-md border border-slate-700 bg-slate-800/80 px-3 py-2 text-sm text-white placeholder-slate-400 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
+              />
+              <button
+                type="submit"
+                className="rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-900"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
           <h3 className="text-base font-semibold uppercase tracking-wide text-slate-200">
             Follow Us
           </h3>
