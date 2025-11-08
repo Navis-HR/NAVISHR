@@ -4,11 +4,9 @@ import AppRoutes from "./routeConfig/Routes";
 
 function App() {
   return (
-    <>
-      <Router>
-        <AppRoutes />
-      </Router>
-    </>
+    <Router basename="/NAVISHR">
+      <AppRoutes />
+    </Router>
   );
 }
 
