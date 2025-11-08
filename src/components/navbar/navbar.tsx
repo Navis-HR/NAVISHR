@@ -65,10 +65,10 @@ const Navbar = () => {
       mobileLabel: "News",
     },
     {
-      id: "Navis HR",
+      id: "Services",
       icon: BriefcaseBusiness,
-      desktopLabel: "Navis HR",
-      mobileLabel: "Navis HR",
+      desktopLabel: "Services",
+      mobileLabel: "Services",
     },
     {
       id: "JAPANESE COMPANIES INDIA",
