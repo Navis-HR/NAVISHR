@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "../pages/home";
+import Services from "../pages/services";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ const AppRoutes: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<Home />} />
         <Route path="/news" element={<Home />} />
-        <Route path="/navis-hr" element={<Home />} />
+        <Route path="/services" element={<Services />} />
         <Route path="/navistars" element={<Home />} />
         <Route path="/contact-us" element={<Home />} />
       </Routes>
