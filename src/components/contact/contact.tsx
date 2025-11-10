@@ -13,7 +13,7 @@ import {
   FaLinkedinIn,
   FaYoutube,
 } from "react-icons/fa";
-import ContactImage from "../../assets/img/06.jpg";
+
 import {
   containerVariants,
   itemVariants,
@@ -67,7 +67,7 @@ const Contact: React.FC<ContactProps> = ({ onSubmit }) => {
     <section className="relative isolate overflow-hidden py-16 sm:py-20">
       <div className="absolute inset-0">
         <img
-          src={ContactImage}
+          src="https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/06.jpg"
           alt="Navis together"
           className="h-full w-full object-cover "
           loading="lazy"

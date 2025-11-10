@@ -1,10 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import News from "../../assets/img/09.jpg";
-import NewsHighlights from "../../assets/img/01.jpg";
-import NavisTeam from "../../assets/img/02.jpg";
-import JobsAbroad from "../../assets/img/03.jpg";
-import NavistaPrograms from "../../assets/img/04.jpg";
 import { containerVariants, itemVariants } from "../animations/animations";
 
 type CardDetail = {
@@ -16,22 +11,26 @@ type CardDetail = {
 const cardDetails: CardDetail[] = [
   {
     title: "News",
-    image: NewsHighlights,
+    image:
+      "https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/01.jpg",
     alt: "Team members reviewing the latest Navis HR news",
   },
   {
     title: "Navis HR",
-    image: NavisTeam,
+    image:
+      "https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/02.jpg",
     alt: "Navis HR professionals collaborating in the office",
   },
   {
     title: "Jobs Abroad",
-    image: JobsAbroad,
+    image:
+      "https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/03.jpg",
     alt: "Navis HR trainees preparing for international careers",
   },
   {
     title: "Navista",
-    image: NavistaPrograms,
+    image:
+      "https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/04.jpg",
     alt: "Navista training session in progress",
   },
 ];
@@ -48,7 +47,7 @@ const Why: React.FC = () => {
     <section className="relative isolate overflow-hidden py-16">
       <div className="absolute inset-0">
         <img
-          src={News}
+          src="https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/09.jpg"
           alt="Navis HR team celebrating together"
           className="h-full w-full object-cover"
           loading="lazy"

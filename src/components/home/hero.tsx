@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import bgHero from "../../assets/img//05.jpg";
-import workIndiaImage from "../../assets/img/01.jpg";
-import workJapanImage from "../../assets/img/03.jpg";
-
 const Hero: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -28,7 +24,7 @@ const Hero: React.FC = () => {
     <section className="relative isolate mt-0 md:-mt-[320px]">
       <div className="absolute inset-0">
         <img
-          src={bgHero}
+          src="https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/05.jpg"
           alt="Navis teammates working together"
           className="h-full w-full object-cover "
         />
@@ -50,7 +46,7 @@ const Hero: React.FC = () => {
         >
           <div className="relative h-34 w-full overflow-hidden bg-white sm:h-72 md:h-[350px]">
             <img
-              src={workIndiaImage}
+              src="https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/01.jpg"
               alt="Navis team members continuing their work in India"
               loading="lazy"
               className="h-full w-full object-cover p-2 rounded-md"
@@ -71,7 +67,7 @@ const Hero: React.FC = () => {
         >
           <div className="relative h-34 w-full overflow-hidden bg-white sm:h-72 md:h-[350px]">
             <img
-              src={workJapanImage}
+              src="https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/03.jpg"
               alt="Navis graduate starting a new life in Japan"
               loading="lazy"
               className="h-full w-full object-cover p-2 rounded-md"

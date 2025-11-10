@@ -6,7 +6,6 @@ import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer/footer";
 import Contact from "../components/contact/contact";
 import type { ContactFormValues } from "../components/contact/contact";
-import MainBackground from "../assets/img/main.png";
 import ThankYouModal from "../components/thankyou/thank-you";
 
 const Home: React.FC = () => {
@@ -68,7 +67,8 @@ const Home: React.FC = () => {
     <div className="">
       <Navbar
         heroContent={{
-          backgroundImage: MainBackground,
+          backgroundImage:
+            "https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/main.png",
           title: "Which path will you choose for your career?",
           description:
             "NAVIS supports development of the 1.4 billion Indian workforce for India, Japan, Germany, Spain and other countries. We create and upskill people to master foreign languages, train and enhance their skills, and build career prospects.",

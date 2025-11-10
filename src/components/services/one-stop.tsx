@@ -1,7 +1,5 @@
 import React from "react";
 import { motion, type Variants } from "framer-motion";
-import heroImage from "../../assets/img/main.png";
-import experienceImage from "../../assets/img/09.jpg";
 
 const heroContainerVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -80,7 +78,7 @@ const OneStop: React.FC = () => {
       >
         <div className="absolute inset-0">
           <motion.img
-            src={heroImage}
+            src="https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/main.png"
             alt="Team collaborating in an office setting"
             className="h-full w-full object-cover"
             loading="lazy"
@@ -200,7 +198,7 @@ const OneStop: React.FC = () => {
               transition={{ duration: 0.35, ease: [0.33, 1, 0.68, 1] }}
             >
               <motion.img
-                src={experienceImage}
+                src="https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/09.jpg"
                 alt="NAVIS HR trainees receiving guidance"
                 className="w-full object-cover"
                 loading="lazy"

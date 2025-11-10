@@ -8,7 +8,6 @@ import {
   GraduationCap,
   type LucideIcon,
 } from "lucide-react";
-import MeguruGraphic from "../../assets/img/Meguru.png";
 
 interface Step {
   number: string;
@@ -340,7 +339,7 @@ const Meguru: React.FC = () => {
       >
         <motion.img
           variants={containerVariants}
-          src={MeguruGraphic}
+          src="https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/Meguru.png"
           alt="Meguru Resource Hub mission diagram"
           className="w-full max-w-4xl "
         />

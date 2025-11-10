@@ -1,41 +1,35 @@
 import React from "react";
-import IMG1 from "../../assets/img/01.jpg";
-import IMG2 from "../../assets/img/02.jpg";
-import IMG3 from "../../assets/img/03.jpg";
-import IMG4 from "../../assets/img/04.jpg";
-import IMG5 from "../../assets/img/05.jpg";
-import IMG6 from "../../assets/img/06.jpg";
 
 const ScrapBook: React.FC = () => {
   const photos = [
     {
       id: "photo-1",
-      src: IMG1,
+      src: "https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/01.jpg",
       alt: "Team celebrating together",
     },
     {
       id: "photo-2",
-      src: IMG2,
+      src: "https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/02.jpg",
       alt: "Smiling teammates at the airport",
     },
     {
       id: "photo-3",
-      src: IMG3,
+      src: "https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/03.jpg",
       alt: "Colleagues with luggage",
     },
     {
       id: "photo-4",
-      src: IMG4,
+      src: "https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/04.jpg",
       alt: "Team posing",
     },
     {
       id: "photo-5",
-      src: IMG5,
+      src: "https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/05.jpg",
       alt: "Team huddle",
     },
     {
       id: "photo-6",
-      src: IMG6,
+      src: "https://navishr.s3.ap-south-1.amazonaws.com/NAVIS%20HR%20assets/06.jpg",
       alt: "Team waving goodbye",
     },
   ];
