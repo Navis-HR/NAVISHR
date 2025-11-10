@@ -20,7 +20,49 @@ import {
   createSlideAnimation,
 } from "../animations/animations";
 
-const Contact: React.FC = () => {
+export type ContactFormValues = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+};
+
+interface ContactProps {
+  onSubmit?: (values: ContactFormValues) => Promise<void> | void;
+}
+
+const Contact: React.FC<ContactProps> = ({ onSubmit }) => {
+  const handleFormSubmit = async (
+    event: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    event.preventDefault();
+
+    const formElement = event.currentTarget;
+    const formData = new FormData(formElement);
+    const formValues: ContactFormValues = {
+      name: (formData.get("name") as string) ?? "",
+      email: (formData.get("email") as string) ?? "",
+      phone: (formData.get("phone") as string) ?? "",
+      message: (formData.get("message") as string) ?? "",
+    };
+
+    if (!onSubmit) {
+      console.warn(
+        "Contact form submitted without onSubmit handler.",
+        formValues
+      );
+      formElement.reset();
+      return;
+    }
+
+    try {
+      await onSubmit(formValues);
+      formElement.reset();
+    } catch (submissionError) {
+      console.error("Contact form submission failed:", submissionError);
+    }
+  };
+
   return (
     <section className="relative isolate overflow-hidden py-16 sm:py-20">
       <div className="absolute inset-0">
@@ -88,6 +130,7 @@ const Contact: React.FC = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.4 }}
+              onSubmit={handleFormSubmit}
             >
               <motion.label
                 className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white px-4 py-4 transition focus-within:border-[#ce0000]"
@@ -100,6 +143,7 @@ const Contact: React.FC = () => {
                   placeholder="Your Name"
                   className="w-full border-none bg-transparent text-base text-slate-700 placeholder:text-slate-400 focus:outline-none"
                   aria-label="Your name"
+                  required
                 />
               </motion.label>
 
@@ -114,6 +158,7 @@ const Contact: React.FC = () => {
                   placeholder="Your Email"
                   className="w-full border-none bg-transparent text-base text-slate-700 placeholder:text-slate-400 focus:outline-none"
                   aria-label="Your email"
+                  required
                 />
               </motion.label>
 
@@ -128,6 +173,15 @@ const Contact: React.FC = () => {
                   placeholder="Your Phone No"
                   className="w-full border-none bg-transparent text-base text-slate-700 placeholder:text-slate-400 focus:outline-none"
                   aria-label="Your phone number"
+                  inputMode="numeric"
+                  pattern="[0-9]{10}"
+                  maxLength={10}
+                  required
+                  title="Please enter a 10-digit phone number"
+                  onInput={(event) => {
+                    const input = event.currentTarget;
+                    input.value = input.value.replace(/\D/g, "").slice(0, 10);
+                  }}
                 />
               </motion.label>
 
@@ -142,6 +196,7 @@ const Contact: React.FC = () => {
                   rows={4}
                   className="w-full border-none bg-transparent text-base text-slate-700 placeholder:text-slate-400 focus:outline-none"
                   aria-label="Your message"
+                  required
                 />
               </motion.label>
 
