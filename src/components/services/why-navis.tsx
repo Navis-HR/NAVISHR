@@ -1,5 +1,5 @@
 import React from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, cubicBezier } from "framer-motion";
 import {
   Briefcase,
   Layers,
@@ -101,7 +101,7 @@ const WhyNavis: React.FC = () => {
     return () => window.clearInterval(intervalId);
   }, [activeIndex, showCard]);
 
-  const easing = [0.24, 0.8, 0.25, 1];
+  const easing = cubicBezier(0.24, 0.8, 0.25, 1);
   return (
     <section className="relative isolate overflow-hidden">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
