@@ -73,7 +73,7 @@ const Home: React.FC = () => {
           description:
             "NAVIS supports development of the 1.4 billion Indian workforce for India, Japan, Germany, Spain and other countries. We create and upskill people to master foreign languages, train and enhance their skills, and build career prospects.",
           buttonText: "Enquiry Now",
-          buttonHref: "/contact-us",
+          buttonHref: "/enquiry",
         }}
       />
       <div className="hidden md:block">

@@ -248,7 +248,7 @@ const Navbar: FC<NavbarProps> = ({ heroContent, showHero = true }) => {
                 animate="animate"
                 variants={buttonVariants}
                 transition={{ duration: 0.6 }}
-                className="mx-auto bg-[#800000] hover:bg-[#660000] text-white font-semibold px-6 sm:px-8 py-2 sm:py-3 rounded-full transition-colors duration-200 shadow-md"
+                className="mx-auto bg-[#800000] hover:bg-[#660000] text-white font-semibold px-6 sm:px-8 py-2 sm:py-3 rounded-full transition-colors duration-200 shadow-md cursor-pointer"
               >
                 {heroContent.buttonText}
               </motion.button>
