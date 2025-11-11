@@ -161,7 +161,8 @@ const Footer: React.FC = () => {
             <motion.a
               aria-label="Follow NAVIS on Facebook"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 transition-transform duration-150 hover:-translate-y-1 hover:bg-blue-500"
-              href="#"
+              href="https://www.facebook.com/NAVISHROFFICIAL/"
+              target="_blank"
               variants={socialIconVariants}
             >
               <FaFacebookF className="text-lg" />
@@ -169,23 +170,26 @@ const Footer: React.FC = () => {
             <motion.a
               aria-label="Follow NAVIS on Instagram"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 transition-transform duration-150 hover:-translate-y-1 hover:bg-pink-500"
-              href="#"
+              href="https://www.instagram.com/navishumanresources/"
+              target="_blank"
               variants={socialIconVariants}
-            >
+              >
               <FaInstagram className="text-lg" />
             </motion.a>
             <motion.a
               aria-label="Follow NAVIS on YouTube"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 transition-transform duration-150 hover:-translate-y-1 hover:bg-red-500"
-              href="#"
+              href="https://www.youtube.com/@navishumanresources"
+              target="_blank"
               variants={socialIconVariants}
-            >
+              >
               <FaYoutube className="text-lg" />
             </motion.a>
             <motion.a
               aria-label="Follow NAVIS on LinkedIn"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 transition-transform duration-150 hover:-translate-y-1 hover:bg-blue-600"
-              href="#"
+              href="https://www.linkedin.com/company/navishumanresources/"
+              target="_blank"
               variants={socialIconVariants}
             >
               <FaLinkedinIn className="text-lg" />
