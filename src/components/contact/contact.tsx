@@ -312,7 +312,8 @@ const Contact: React.FC<ContactProps> = ({ onSubmit }) => {
                 variants={containerVariants}
               >
                 <motion.a
-                  href="#"
+                  href="https://www.facebook.com/NAVISHROFFICIAL/"
+                  target="_blank"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#ce0000] shadow-md shadow-[#d53d3d]/15 transition hover:-translate-y-0.5 hover:text-[#ff845f]"
                   aria-label="Facebook"
                   variants={itemVariants}
@@ -320,7 +321,8 @@ const Contact: React.FC<ContactProps> = ({ onSubmit }) => {
                   <FaFacebookF />
                 </motion.a>
                 <motion.a
-                  href="#"
+                  href="https://www.instagram.com/navishumanresources/"
+                  target="_blank"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#ce0000] shadow-md shadow-[#d53d3d]/15 transition hover:-translate-y-0.5 hover:text-[#ff845f]"
                   aria-label="Instagram"
                   variants={itemVariants}
@@ -328,7 +330,8 @@ const Contact: React.FC<ContactProps> = ({ onSubmit }) => {
                   <FaInstagram />
                 </motion.a>
                 <motion.a
-                  href="#"
+                  href="https://www.youtube.com/@navishumanresources"
+                  target="_blank"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#ce0000] shadow-md shadow-[#d53d3d]/15 transition hover:-translate-y-0.5 hover:text-[#ff845f]"
                   aria-label="YouTube"
                   variants={itemVariants}
@@ -336,7 +339,8 @@ const Contact: React.FC<ContactProps> = ({ onSubmit }) => {
                   <FaYoutube />
                 </motion.a>
                 <motion.a
-                  href="#"
+                  href="https://www.linkedin.com/company/navishumanresources/"
+                  target="_blank"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#ce0000] shadow-md shadow-[#d53d3d]/15 transition hover:-translate-y-0.5 hover:text-[#ff845f]"
                   aria-label="LinkedIn"
                   variants={itemVariants}
