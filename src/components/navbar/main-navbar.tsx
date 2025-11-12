@@ -164,7 +164,7 @@ const MainNavbar: FC = () => {
         variants={compactNavbarVariants}
         initial="hidden"
         animate="visible"
-        className="fixed top-0 left-0 right-0 z-50"
+        className="fixed top-0 left-0 right-0 z-50 poppins"
       >
         <div className="w-full bg-white shadow-lg">
           <div className="max-w-auto mx-auto px-4">
@@ -173,7 +173,7 @@ const MainNavbar: FC = () => {
               <img
                 src={NAVISHR}
                 alt="NAVISHR"
-                className="h-15 w-auto shrink-0 object-contain"
+                className="h-11 w-auto shrink-0 object-contain"
               />
 
               {/* Compact Navigation */}

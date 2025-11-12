@@ -9,7 +9,7 @@ import Meguru from "../components/services/meguru";
 
 const Services: React.FC = () => {
   return (
-    <div className="bg-linear-to-b from-red-50 via-white to-slate-50">
+    <div className="bg-linear-to-b from-red-50 via-white to-slate-50 poppins">
       <div className="mb-18">
         <MainNavbar />
       </div>

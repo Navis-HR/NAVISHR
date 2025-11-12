@@ -64,7 +64,7 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="poppins">
       <Navbar
         heroContent={{
           backgroundImage:

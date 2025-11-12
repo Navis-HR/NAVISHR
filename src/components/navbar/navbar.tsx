@@ -211,7 +211,7 @@ const Navbar: FC<NavbarProps> = ({ heroContent, showHero = true }) => {
   };
 
   return (
-    <>
+    <div className="poppins">
       {showHero && heroContent ? (
         <div
           className={`relative ${
@@ -227,7 +227,7 @@ const Navbar: FC<NavbarProps> = ({ heroContent, showHero = true }) => {
               animate="animate"
               variants={titleVariants}
               transition={{ duration: 0.6 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white happy-monkey"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white poppins"
             >
               {heroContent.title}
             </motion.h1>
@@ -279,12 +279,12 @@ const Navbar: FC<NavbarProps> = ({ heroContent, showHero = true }) => {
                     <img
                       src={NAVISHR}
                       alt="NAVISHR"
-                      className="h-15 w-auto object-contain md:hidden"
+                      className="h-8 w-auto object-contain md:hidden"
                     />
                     <img
                       src={NAVISHRLogoWhite}
                       alt="NAVISHR"
-                      className="hidden h-11 w-auto object-contain md:block"
+                      className="hidden h-8 w-auto object-contain md:block"
                     />
                   </div>
                   <button
@@ -453,7 +453,7 @@ const Navbar: FC<NavbarProps> = ({ heroContent, showHero = true }) => {
                   <img
                     src={NAVISHR}
                     alt="NAVISHR"
-                    className="h-15 w-auto shrink-0 object-contain"
+                    className="h-11 w-auto shrink-0 object-contain"
                   />
 
                   {/* Compact Navigation */}
@@ -688,7 +688,7 @@ const Navbar: FC<NavbarProps> = ({ heroContent, showHero = true }) => {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 };
 
